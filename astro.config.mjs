@@ -6,13 +6,9 @@ export default defineConfig({
 	site: 'https://help.oworld.pro',
 	integrations: [
 		starlight({
-			title: 'Oworld Help & Docs',
+			title: 'OWORLD Help & Docs',
 			favicon: '/favicon.svg',
 			customCss: ['./src/styles/custom.css'],
-			logo: {
-				alt: 'Oworld Logo',
-				src: './src/assets/oworld-logo.svg',
-			},
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/Oworlds/Qhub' },
 				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/your-invite-code' },
