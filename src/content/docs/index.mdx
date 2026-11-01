@@ -1,40 +1,42 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: How can we help you prepare?
+description: Official documentation, guides, and Qhub community manuals for Oworld.pro.
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
+  tagline: Zero backend. 100% data sovereignty. Pure board prep.
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Read Getting Started
+      link: /getting-started/overview/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+      variant: primary
+    - text: Back to App
+      link: https://app.oworld.pro
       icon: external
-      variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## Quick Navigation
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+<CardGrid grid>
+  <Card icon="laptop" title="Google Drive Sync">
+    Learn how your `sql.js` database syncs privately to your Google Drive `appdata` container.
+    
+    [View Sync Guide →](/drive-sync/setup/)
+  </Card>
+  <Card icon="open-book" title="Qhub JSON Recipes">
+    Import community-vetted USMLE decks or contribute your own question banks via Discord.
+    
+    [Explore Qhub →](/qhub/recipes/)
+  </Card>
+  <Card icon="setting" title="Group Study Mode">
+    Coordinate live review sessions over Discord with unscrambled stems and locked tutor tips.
+    
+    [Group Study Setup →](/features/group-study/)
+  </Card>
+  <Card icon="warning" title="Troubleshooting">
+    Fix OAuth origin mismatches, local storage resets, or catalog fetching errors.
+    
+    [Troubleshooting →](/drive-sync/troubleshooting/)
+  </Card>
 </CardGrid>

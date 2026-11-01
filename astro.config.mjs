@@ -2,23 +2,49 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// https://astro.build/config
 export default defineConfig({
+	site: 'https://help.oworld.pro',
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: 'Oworld Help & Docs',
+			favicon: '/favicon.svg',
+			customCss: ['./src/styles/custom.css'],
+			logo: {
+				alt: 'Oworld Logo',
+				src: './src/assets/oworld-logo.svg',
+			},
+			social: [
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/Oworlds/Qhub' },
+				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/your-invite-code' },
+			],
 			sidebar: [
 				{
-					label: 'Guides',
+					label: '🚀 Getting Started',
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Platform Overview', link: '/getting-started/overview/' },
+						{ label: 'Data Sovereignty & Privacy', link: '/getting-started/privacy/' },
 					],
 				},
 				{
-					label: 'Reference',
-					items: [{ autogenerate: { directory: 'reference' } }],
+					label: '🔒 Google Drive Sync',
+					items: [
+						{ label: 'Setting Up AppData Sync', link: '/drive-sync/setup/' },
+						{ label: 'Troubleshooting OAuth Errors', link: '/drive-sync/troubleshooting/' },
+					],
+				},
+				{
+					label: '🧬 Qhub & Question Banks',
+					items: [
+						{ label: 'Ingesting Qbank Recipes', link: '/qhub/recipes/' },
+						{ label: 'Submitting Decks via Discord', link: '/qhub/contributing/' },
+					],
+				},
+				{
+					label: '👥 Modes & Features',
+					items: [
+						{ label: 'Group Study Mode', link: '/features/group-study/' },
+						{ label: 'Creator & Shorts Mode', link: '/features/shorts-mode/' },
+					],
 				},
 			],
 		}),

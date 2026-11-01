@@ -1,0 +1,58 @@
+:root {
+  --sl-color-accent-low: #0c4a6e;
+  --sl-color-accent: #38bdf8;
+  --sl-color-accent-high: #7dd3fc;
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #e8eef5;
+  --sl-color-gray-2: #b8c0cc;
+  --sl-color-gray-3: #8892a0;
+  --sl-color-gray-4: #3d4450;
+  --sl-color-gray-5: #1a1f2b;
+  --sl-color-gray-6: #0b0f19;
+  --sl-color-black: #030712;
+}
+
+[data-theme='dark'] {
+  --sl-color-accent: #38bdf8;
+  --sl-color-accent-low: #0c4a6e;
+  --sl-color-accent-high: #7dd3fc;
+  --sl-color-bg: #030712;
+  --sl-color-bg-nav: #0b0f19;
+  --sl-color-bg-sidebar: #0b0f19;
+}
+
+.card {
+  border-color: var(--sl-color-accent-low);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--sl-color-accent);
+  box-shadow: 0 0 0 1px var(--sl-color-accent);
+}
+
+.hero .action {
+  border-width: 1px;
+  border-style: solid;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hero .action.primary {
+  background-color: var(--sl-color-accent);
+  border-color: var(--sl-color-accent);
+  color: var(--sl-color-black);
+}
+
+.hero .action:hover {
+  border-color: var(--sl-color-accent-high);
+  box-shadow: 0 0 0 1px var(--sl-color-accent-high);
+}
+
+.hero .action.primary:hover {
+  background-color: var(--sl-color-accent-high);
+  color: var(--sl-color-black);
+}
