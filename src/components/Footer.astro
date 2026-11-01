@@ -1,0 +1,206 @@
+---
+const discordUrl = "https://discord.gg/ecYDZgumB";
+const patreonUrl = "https://www.patreon.com/cw/Oworld";
+const disclaimer =
+  "OWORLD is an independent, unofficial study tool for running practice question blocks you generate yourself with third-party AI tools. It is not produced, endorsed, licensed, or affiliated with the National Board of Medical Examiners (NBME) or the Federation of State Medical Boards (FSMB). USMLE® is a registered trademark of the NBME and FSMB. Any resemblance to their exam interface or terminology is used for descriptive and educational purposes only.";
+---
+
+<footer class="oworld-footer">
+  <p class="oworld-footer-line oworld-footer-muted">
+    OWORLD is created by <strong>Oscar Perez</strong> — Medical student | Founder of Verde+
+    <span class="oworld-footer-bullet" aria-hidden="true">•</span>
+    <a href={discordUrl} target="_blank" rel="noopener noreferrer" class="oworld-footer-link">
+      Join our Discord
+    </a>
+  </p>
+
+  <p class="oworld-footer-line">
+    <a href={patreonUrl} target="_blank" rel="noopener noreferrer" class="oworld-footer-support">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="12"
+        height="12"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true">
+        <path
+          d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+        ></path>
+      </svg>
+      Support Oworld
+    </a>
+  </p>
+
+  <button
+    type="button"
+    class="oworld-footer-disclaimer"
+    data-disclaimer-open
+    aria-haspopup="dialog"
+    aria-controls="oworld-disclaimer">
+    Not affiliated with NBME or USMLE®
+  </button>
+</footer>
+
+<dialog
+  id="oworld-disclaimer"
+  class="oworld-disclaimer"
+  aria-labelledby="oworld-disclaimer-title">
+  <div class="oworld-disclaimer-panel">
+    <h3 id="oworld-disclaimer-title">Trademark disclaimer</h3>
+    <p>{disclaimer}</p>
+    <div class="oworld-disclaimer-actions">
+      <button type="button" data-disclaimer-close>Close</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  function bindDisclaimer() {
+    const dialog = document.getElementById("oworld-disclaimer");
+    const openBtn = document.querySelector("[data-disclaimer-open]");
+    const closeBtn = dialog?.querySelector("[data-disclaimer-close]");
+    if (!(dialog instanceof HTMLDialogElement) || !(openBtn instanceof HTMLElement)) return;
+    if (openBtn.dataset.bound === "true") return;
+
+    openBtn.dataset.bound = "true";
+    openBtn.addEventListener("click", () => dialog.showModal());
+    closeBtn?.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  }
+
+  bindDisclaimer();
+  document.addEventListener("astro:page-load", bindDisclaimer);
+</script>
+
+<style>
+  .oworld-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: transparent;
+    color: #a1a1aa;
+    margin-top: 0;
+    padding: 1.25rem 1rem 2rem;
+    border-top: 1px solid #27272a;
+  }
+
+  .oworld-footer-line {
+    margin: 0 0 6px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #a1a1aa;
+  }
+
+  .oworld-footer-muted {
+    color: #a1a1aa;
+  }
+
+  .oworld-footer-muted strong {
+    color: #f4f4f5;
+    font-weight: 600;
+  }
+
+  .oworld-footer-bullet {
+    margin: 0 8px;
+    color: #a1a1aa;
+  }
+
+  .oworld-footer-link,
+  .oworld-footer-support {
+    color: #a1a1aa;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .oworld-footer-link:hover,
+  .oworld-footer-support:hover {
+    color: #f4f4f5;
+    text-decoration: underline;
+  }
+
+  .oworld-footer-disclaimer:hover {
+    color: #f4f4f5;
+    text-decoration: underline;
+  }
+
+  .oworld-footer-support {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11.5px;
+  }
+
+  .oworld-footer-disclaimer {
+    font-family: inherit;
+    font-size: 11.5px;
+    color: #a1a1aa;
+    background: transparent;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+  }
+
+  .oworld-disclaimer {
+    padding: 0;
+    border: none;
+    background: transparent;
+    margin: auto;
+    width: min(440px, calc(100% - 40px));
+  }
+
+  .oworld-disclaimer::backdrop {
+    background: rgba(9, 9, 11, 0.72);
+  }
+
+  .oworld-disclaimer-panel {
+    background: #121212;
+    color: #f4f4f5;
+    border: 1px solid #27272a;
+    border-radius: 0.75rem;
+    padding: 26px;
+  }
+
+  .oworld-disclaimer-panel h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f4f4f5;
+    margin: 0 0 10px;
+  }
+
+  .oworld-disclaimer-panel p {
+    font-size: 13.5px;
+    color: #a1a1aa;
+    line-height: 1.6;
+    margin: 0 0 20px;
+  }
+
+  .oworld-disclaimer-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .oworld-disclaimer-actions button {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: #09090b;
+    background: #38bdf8;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+
+  .oworld-disclaimer-actions button:hover {
+    background: #7dd3fc;
+  }
+</style>
